@@ -1,28 +1,32 @@
+import type React from "react"
+import { Poppins } from "next/font/google"
+import Navbar from "@/app/components/Navbar"
+import Footer from "@/app/components/Footer"
+import "./globals.css"
 
-import { Inter } from 'next/font/google';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import './globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
+const poppins = Poppins({
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+})
 
 export const metadata = {
-  title: 'FLOWEASE - Your Monthly Flow, Perfected',
-  description: 'Period care drinks for wellness and comfort.',
-};
+  title: "FLOWEASE - Your Monthly Flow, Perfected",
+  description: "Natural period care drinks for wellness, comfort, and menstrual health.",
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-pastel-pink min-h-screen flex flex-col`}>
+      <body className={`${poppins.className} bg-gradient-to-b from-pink-50 to-purple-50 min-h-screen flex flex-col`}>
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
       </body>
     </html>
-  );
+  )
 }
+
