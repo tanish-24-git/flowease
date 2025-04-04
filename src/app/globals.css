@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Pastel colors from src/app/styles/globals.css */
+/* Pastel colors */
 :root {
   --pastel-pink: #fce4ec;
   --pastel-purple: #e1bee7;
@@ -10,7 +10,7 @@
   --pastel-green: #c8e6c9;
 }
 
-/* Custom colors and styles from your src/app/globals.css */
+/* Custom colors */
 :root {
   --primary-pink: #f8bbd0;
   --primary-purple: #e1bee7;
@@ -24,9 +24,8 @@
 
 body {
   background-color: var(--light-pink);
-  color: #4a4a4a;
+  color: #1f2937; /* Replaced text-gray-800 from previous fix */
   overflow-x: hidden;
-  @apply text-gray-800; /* From src/app/styles/globals.css */
 }
 
 .floating {
@@ -94,7 +93,18 @@ body {
 
 /* Custom components */
 .btn-primary {
-  @apply bg-primary-pink hover:bg-accent-pink text-white font-medium py-2 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1;
+  background-color: #f8bbd0; /* primary-pink */
+  color: #ffffff; /* text-white */
+  font-weight: 500; /* font-medium */
+  padding: 0.5rem 1.5rem; /* py-2 px-6 */
+  border-radius: 9999px; /* rounded-full */
+  transition: all 0.3s; /* transition-all duration-300 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+}
+.btn-primary:hover {
+  background-color: #ec407a; /* accent-pink */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* hover:shadow-lg */
+  transform: translateY(-0.25rem); /* hover:-translate-y-1 */
 }
 
 .card {
