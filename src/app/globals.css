@@ -2,15 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Pastel colors */
-:root {
-  --pastel-pink: #fce4ec;
-  --pastel-purple: #e1bee7;
-  --pastel-blue: #b3e5fc;
-  --pastel-green: #c8e6c9;
-}
-
-/* Custom colors */
+/* Custom colors and variables */
 :root {
   --primary-pink: #f8bbd0;
   --primary-purple: #e1bee7;
@@ -24,10 +16,11 @@
 
 body {
   background-color: var(--light-pink);
-  color: #1f2937; /* Replaced text-gray-800 from previous fix */
+  color: #1f2937;
   overflow-x: hidden;
 }
 
+/* Animation classes */
 .floating {
   animation: floating 3s ease-in-out infinite;
 }
@@ -61,61 +54,89 @@ body {
 }
 
 @keyframes floating {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideInLeft {
-  from { transform: translateX(-50px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 @keyframes slideInRight {
-  from { transform: translateX(50px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
-/* Custom components */
-.btn-primary {
-  background-color: #f8bbd0; /* primary-pink */
-  color: #ffffff; /* text-white */
-  font-weight: 500; /* font-medium */
-  padding: 0.5rem 1.5rem; /* py-2 px-6 */
-  border-radius: 9999px; /* rounded-full */
-  transition: all 0.3s; /* transition-all duration-300 */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
-}
-.btn-primary:hover {
-  background-color: #ec407a; /* accent-pink */
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* hover:shadow-lg */
-  transform: translateY(-0.25rem); /* hover:-translate-y-1 */
+/* Custom component styles */
+@layer components {
+  .btn-primary {
+    @apply bg-pink-400 text-white font-medium py-2 px-6 rounded-full shadow-md transition-all duration-300;
+  }
+
+  .btn-primary:hover {
+    @apply bg-pink-500 shadow-lg -translate-y-1;
+  }
+
+  .card {
+    @apply bg-pink-50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-purple-100;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-purple-800 mb-6 relative;
+  }
+
+  .section-title::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-16 h-1 bg-pink-400 rounded-full;
+  }
 }
 
-.card {
-  @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-purple-100;
-}
-
-.section-title {
-  @apply text-3xl md:text-4xl font-bold text-purple-800 mb-6 relative;
-}
-
-.section-title::after {
-  content: "";
-  @apply absolute bottom-0 left-0 w-16 h-1 bg-primary-pink rounded-full;
-}

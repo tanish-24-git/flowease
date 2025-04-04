@@ -74,19 +74,19 @@ export default function About() {
             causes of menstrual discomfort, not just mask the symptoms.
           </p>
           <div className="grid md:grid-cols-3 gap-6 mt-8">
-            <div className="bg-white p-6 rounded-xl shadow-sm">
+            <div className="bg-pink-50 p-6 rounded-xl shadow-sm">
               <h3 className="font-bold text-pink-600 mb-2">Educate</h3>
               <p className="text-gray-600">
                 Empower women with knowledge about their menstrual cycles and natural remedies.
               </p>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-sm">
+            <div className="bg-pink-50 p-6 rounded-xl shadow-sm">
               <h3 className="font-bold text-pink-600 mb-2">Innovate</h3>
               <p className="text-gray-600">
                 Continuously research and develop new formulations based on scientific evidence.
               </p>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-sm">
+            <div className="bg-pink-50 p-6 rounded-xl shadow-sm">
               <h3 className="font-bold text-pink-600 mb-2">Support</h3>
               <p className="text-gray-600">Create a community where women can share experiences and find support.</p>
             </div>
@@ -123,7 +123,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="bg-white p-4 rounded-lg shadow-sm border border-purple-100"
+                className="bg-pink-50 p-4 rounded-lg shadow-sm border border-purple-100"
               >
                 <h3 className="font-bold text-purple-700">{ingredient.name}</h3>
                 <p className="text-sm text-gray-600">{ingredient.benefit}</p>
@@ -138,7 +138,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-white p-8 rounded-2xl shadow-md"
+          className="bg-pink-50 p-8 rounded-2xl shadow-md"
         >
           <h2 className="section-title">Connect With Us</h2>
           <p className="text-gray-600 mb-8">
@@ -147,7 +147,7 @@ export default function About() {
           <div className="grid md:grid-cols-3 gap-8">
             <a
               href="mailto:hello@flowease.com"
-              className="flex flex-col items-center p-6 rounded-xl hover:bg-pink-50 transition-colors"
+              className="flex flex-col items-center p-6 rounded-xl hover:bg-pink-100 transition-colors"
             >
               <Mail size={32} className="text-pink-500 mb-4" />
               <h3 className="font-bold text-purple-700 mb-2">Email Us</h3>
@@ -155,7 +155,7 @@ export default function About() {
             </a>
             <a
               href="tel:+1234567890"
-              className="flex flex-col items-center p-6 rounded-xl hover:bg-pink-50 transition-colors"
+              className="flex flex-col items-center p-6 rounded-xl hover:bg-pink-100 transition-colors"
             >
               <Phone size={32} className="text-pink-500 mb-4" />
               <h3 className="font-bold text-purple-700 mb-2">Call Us</h3>
@@ -165,7 +165,7 @@ export default function About() {
               href="https://instagram.com/flowease"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center p-6 rounded-xl hover:bg-pink-50 transition-colors"
+              className="flex flex-col items-center p-6 rounded-xl hover:bg-pink-100 transition-colors"
             >
               <Instagram size={32} className="text-pink-500 mb-4" />
               <h3 className="font-bold text-purple-700 mb-2">Follow Us</h3>

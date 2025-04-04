@@ -24,7 +24,7 @@ export default function ProductCard({ id, name, ingredients, flavor, benefit, im
       <div className="relative h-48 bg-gradient-to-br from-pink-100 to-purple-100 overflow-hidden">
         <Image src={image || "/placeholder.svg?height=200&width=300"} alt={name} fill className="object-contain p-4" />
       </div>
-      <div className="p-6 flex-grow">
+      <div className="p-6 flex-grow bg-white">
         <h3 className="text-xl font-bold text-purple-700 mb-3">{name}</h3>
         <div className="space-y-2 text-gray-600">
           <p>
@@ -38,7 +38,7 @@ export default function ProductCard({ id, name, ingredients, flavor, benefit, im
           </p>
         </div>
       </div>
-      <div className="p-4 border-t border-purple-100">
+      <div className="p-4 border-t border-purple-100 bg-white">
         <button className="w-full py-2 px-4 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-lg transition-colors">
           Learn More
         </button>

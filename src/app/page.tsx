@@ -10,7 +10,7 @@ export default function Home() {
       <LogoSection />
 
       {/* Introduction Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-pink-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -97,7 +97,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all"
+                className="bg-pink-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-all"
               >
                 <div className="text-4xl mb-4">{benefit.icon}</div>
                 <h3 className="text-xl font-bold text-purple-700 mb-3">{benefit.title}</h3>
@@ -109,7 +109,7 @@ export default function Home() {
       </section>
 
       {/* Educational Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-pink-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -188,27 +188,27 @@ export default function Home() {
             >
               <h3 className="text-xl font-bold text-purple-700 mb-4">Common Menstrual Symptoms & Support</h3>
               <div className="space-y-4">
-                <div className="bg-white p-4 rounded-lg shadow-sm border border-purple-100">
+                <div className="bg-pink-50 p-4 rounded-lg shadow-sm border border-purple-100">
                   <h4 className="font-bold text-pink-600">Cramps & Pain</h4>
                   <p className="text-gray-600">
                     Our drinks contain ginger and turmeric, natural anti-inflammatories that help reduce prostaglandins
                     responsible for cramps.
                   </p>
                 </div>
-                <div className="bg-white p-4 rounded-lg shadow-sm border border-purple-100">
+                <div className="bg-pink-50 p-4 rounded-lg shadow-sm border border-purple-100">
                   <h4 className="font-bold text-pink-600">Bloating</h4>
                   <p className="text-gray-600">
                     Dandelion root and peppermint in our formulas help reduce water retention and soothe digestive
                     discomfort.
                   </p>
                 </div>
-                <div className="bg-white p-4 rounded-lg shadow-sm border border-purple-100">
+                <div className="bg-pink-50 p-4 rounded-lg shadow-sm border border-purple-100">
                   <h4 className="font-bold text-pink-600">Mood Swings</h4>
                   <p className="text-gray-600">
                     Adaptogens like ashwagandha and mood-supporting herbs like lemon balm help stabilize emotions.
                   </p>
                 </div>
-                <div className="bg-white p-4 rounded-lg shadow-sm border border-purple-100">
+                <div className="bg-pink-50 p-4 rounded-lg shadow-sm border border-purple-100">
                   <h4 className="font-bold text-pink-600">Fatigue</h4>
                   <p className="text-gray-600">
                     B vitamins and iron-rich herbs help combat period-related fatigue and boost energy levels naturally.

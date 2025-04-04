@@ -83,7 +83,7 @@ export default function Products() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-16 bg-white rounded-2xl p-8 shadow-md"
+          className="mt-16 bg-pink-50 rounded-2xl p-8 shadow-md"
         >
           <h2 className="text-2xl font-bold text-purple-800 mb-6">How to Use FLOWEASE Sachets</h2>
           <div className="grid md:grid-cols-3 gap-6">
