@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --pastel-pink: #fce4ec;
+  --pastel-purple: #e1bee7;
+  --pastel-blue: #b3e5fc;
+  --pastel-green: #c8e6c9;
+}
+
+body {
+  @apply text-gray-800;
+}
