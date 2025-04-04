@@ -29,8 +29,8 @@ export default function About() {
           >
             <h2 className="section-title">Our Story</h2>
             <p className="text-gray-600 mb-4">
-              FLOWEASE was born from a simple yet powerful idea: periods shouldn't be painful or disruptive. Our
-              founder, Vrinda, struggled with severe menstrual symptoms for years and found that traditional remedies
+              FLOWEASE was born from a simple yet powerful idea: periods are not meant be painful or disruptive. Our
+              founder, Vrinda,struggled with severe menstrual symptoms for years and found that traditional remedies
               often came with unwanted side effects.
             </p>
             <p className="text-gray-600 mb-4">
@@ -53,7 +53,7 @@ export default function About() {
           >
             <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/founder.jpg" // Replace with your founder image path in public/
+                src="/founder.jpg"
                 alt="FLOWEASE Founder"
                 fill
                 className="object-cover"
@@ -147,7 +147,7 @@ export default function About() {
         >
           <h2 className="section-title">Connect With Us</h2>
           <p className="text-gray-600 mb-8">
-            We'd love to hear from you! Reach out with questions, feedback, or just to say hello.
+            We would love to hear from you! Reach out with questions, feedback, or just to say hello.
           </p>
           <div className="grid md:grid-cols-3 gap-8">
             <a
