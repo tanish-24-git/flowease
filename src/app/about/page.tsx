@@ -30,7 +30,7 @@ export default function About() {
             <h2 className="section-title">Our Story</h2>
             <p className="text-gray-600 mb-4">
               FLOWEASE was born from a simple yet powerful idea: periods shouldn't be painful or disruptive. Our
-              founder, Sarah, struggled with severe menstrual symptoms for years and found that traditional remedies
+              founder, Vrinda, struggled with severe menstrual symptoms for years and found that traditional remedies
               often came with unwanted side effects.
             </p>
             <p className="text-gray-600 mb-4">
@@ -52,7 +52,12 @@ export default function About() {
             className="relative"
           >
             <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
-              <Image src="/placeholder.svg?height=400&width=600" alt="FLOWEASE Founder" fill className="object-cover" />
+              <Image
+                src="/founder.jpg" // Replace with your founder image path in public/
+                alt="FLOWEASE Founder"
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-pink-100 rounded-full z-0"></div>
             <div className="absolute -top-6 -left-6 w-24 h-24 bg-purple-100 rounded-full z-0"></div>
@@ -146,12 +151,12 @@ export default function About() {
           </p>
           <div className="grid md:grid-cols-3 gap-8">
             <a
-              href="mailto:hello@flowease.com"
+              href="mailto:Flowease25@gmail.com"
               className="flex flex-col items-center p-6 rounded-xl hover:bg-pink-100 transition-colors"
             >
               <Mail size={32} className="text-pink-500 mb-4" />
               <h3 className="font-bold text-purple-700 mb-2">Email Us</h3>
-              <p className="text-gray-600 text-center">hello@flowease.com</p>
+              <p className="text-gray-600 text-center">Flowease25@gmail.com</p>
             </a>
             <a
               href="tel:+1234567890"
@@ -159,17 +164,17 @@ export default function About() {
             >
               <Phone size={32} className="text-pink-500 mb-4" />
               <h3 className="font-bold text-purple-700 mb-2">Call Us</h3>
-              <p className="text-gray-600 text-center">+123 456 7890</p>
+              <p className="text-gray-600 text-center">+91 9529443859</p>
             </a>
             <a
-              href="https://instagram.com/flowease"
+              href="https://www.instagram.com/flowease._?igsh=MTl6cHc1dmd3NzRhbg=="
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center p-6 rounded-xl hover:bg-pink-100 transition-colors"
             >
               <Instagram size={32} className="text-pink-500 mb-4" />
               <h3 className="font-bold text-purple-700 mb-2">Follow Us</h3>
-              <p className="text-gray-600 text-center">@flowease</p>
+              <p className="text-gray-600 text-center">@flowease._</p>
             </a>
           </div>
         </motion.div>
@@ -177,4 +182,3 @@ export default function About() {
     </div>
   )
 }
-

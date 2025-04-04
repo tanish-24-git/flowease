@@ -42,7 +42,7 @@ export default function Home() {
             >
               <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="/product-sachets.jpg" // Ensure this file exists in public/
                   alt="FLOWEASE Product Sachets"
                   fill
                   className="object-cover"
@@ -244,4 +244,3 @@ export default function Home() {
     </div>
   )
 }
-
