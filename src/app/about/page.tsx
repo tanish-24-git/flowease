@@ -30,7 +30,7 @@ export default function About() {
             <h2 className="section-title">Our Story</h2>
             <p className="text-gray-600 mb-4">
               FLOWEASE was born from a simple yet powerful idea: periods are not meant be painful or disruptive. Our
-              founder, Vrinda,struggled with severe menstrual symptoms for years and found that traditional remedies
+              founders struggled with severe menstrual symptoms for years and found that traditional remedies
               often came with unwanted side effects.
             </p>
             <p className="text-gray-600 mb-4">

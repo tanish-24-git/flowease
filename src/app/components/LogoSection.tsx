@@ -6,9 +6,9 @@ export default function LogoSection() {
   return (
     <div className="py-24 text-center relative overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-10 left-1/4 w-20 h-20 rounded-full bg-pink-200 opacity-50 floating" />
-        <div className="absolute bottom-10 right-1/4 w-16 h-16 rounded-full bg-purple-200 opacity-50 floating floating-delay-1" />
-        <div className="absolute top-1/3 right-1/3 w-12 h-12 rounded-full bg-pink-100 opacity-40 floating floating-delay-2" />
+        <div className="absolute top-10 left-1/4 w-20 h-20 rounded-full bg-green-200 opacity-50 floating" />
+        <div className="absolute bottom-10 right-1/4 w-16 h-16 rounded-full bg-pink-200 opacity-50 floating floating-delay-1" />
+        <div className="absolute top-1/3 right-1/3 w-12 h-12 rounded-full bg-green-100 opacity-40 floating floating-delay-2" />
       </div>
 
       <div className="relative z-10">
@@ -25,7 +25,7 @@ export default function LogoSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent"
+          className="text-4xl md:text-5xl font-bold mb-4 text-pink-300"
         >
           FLOWEASE
         </motion.h1>
@@ -43,6 +43,8 @@ export default function LogoSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.7 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
           <a href="/products" className="btn-primary inline-block">
             Discover Our Products

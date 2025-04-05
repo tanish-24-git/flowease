@@ -22,7 +22,10 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav
+    <motion.nav
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled ? "bg-white/90 backdrop-blur-md shadow-md py-2" : "bg-transparent py-4"
       }`}
@@ -31,9 +34,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
             <Link href="/" className="flex items-center">
-              <span className="text-2xl font-bold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
-                FLOWEASE
-              </span>
+              <span className="text-2xl font-bold text-pink-300">FLOWEASE</span>
             </Link>
           </motion.div>
 
@@ -48,9 +49,10 @@ export default function Navbar() {
               >
                 <Link
                   href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                  className="text-gray-700 hover:text-pink-500 font-medium transition-colors"
+                  className="text-gray-700 hover:text-green-500 font-medium transition-colors relative group"
                 >
                   {item}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-500 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               </motion.div>
             ))}
@@ -58,9 +60,14 @@ export default function Navbar() {
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700 hover:text-pink-500 focus:outline-none">
+            <motion.button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-gray-700 hover:text-green-500 focus:outline-none"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>
@@ -74,20 +81,26 @@ export default function Navbar() {
           className="md:hidden bg-white shadow-lg"
         >
           <div className="px-4 py-5 space-y-4">
-            {["Home", "Products", "About"].map((item) => (
-              <Link
+            {["Home", "Products", "About"].map((item, index) => (
+              <motion.div
                 key={item}
-                href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                className="block text-gray-700 hover:text-pink-500 font-medium"
-                onClick={() => setIsOpen(false)}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1 }}
               >
-                {item}
-              </Link>
+                <Link
+                  href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+                  className="block text-gray-700 hover:text-green-500 font-medium"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item}
+                </Link>
+              </motion.div>
             ))}
           </div>
         </motion.div>
       )}
-    </nav>
+    </motion.nav>
   )
 }
 

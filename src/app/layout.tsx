@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} bg-gradient-to-b from-pink-50 to-purple-50 min-h-screen flex flex-col`}>
+      <body className={`${poppins.className} bg-gradient-to-b from-green-50 to-pink-50 min-h-screen flex flex-col`}>
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
