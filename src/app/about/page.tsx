@@ -34,9 +34,9 @@ export default function About() {
               often came with unwanted side effects.
             </p>
             <p className="text-gray-600 mb-4">
-              After researching natural alternatives and consulting with herbalists and nutritionists, she developed a
-              series of herbal drink blends that dramatically improved her symptoms. Inspired by her own transformation,
-              she decided to share these formulations with others.
+              After researching natural alternatives and consulting with herbalists and nutritionists, they developed a
+              series of herbal drink blends that dramatically improved their symptoms. Inspired by their own transformation,
+              they decided to share these formulations with others.
             </p>
             <p className="text-gray-600">
               Today, FLOWEASE is dedicated to helping women everywhere experience more comfortable, balanced periods
