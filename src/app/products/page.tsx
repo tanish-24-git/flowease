@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
-import { ChevronDown, ChevronUp, ShoppingBag } from "lucide-react"
+import { ChevronLeft, ChevronRight, ShoppingBag, ShoppingCart, X } from "lucide-react"
 
 // Product data
 const products = [
@@ -87,8 +87,10 @@ export default function ProductsPage() {
   const [direction, setDirection] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
   const [isScrolling, setIsScrolling] = useState(false)
+  const [showToast, setShowToast] = useState(false)
+  const [showCartToast, setShowCartToast] = useState(false)
 
-  // Handle scroll navigation
+  // Handle scroll navigation - now horizontal
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       if (isScrolling) return
@@ -96,10 +98,10 @@ export default function ProductsPage() {
       setIsScrolling(true)
       setTimeout(() => setIsScrolling(false), 1000)
 
-      if (e.deltaY > 0 && activeProduct < products.length - 1) {
+      if (e.deltaX > 0 && activeProduct < products.length - 1) {
         setDirection(1)
         setActiveProduct((prev) => prev + 1)
-      } else if (e.deltaY < 0 && activeProduct > 0) {
+      } else if (e.deltaX < 0 && activeProduct > 0) {
         setDirection(-1)
         setActiveProduct((prev) => prev - 1)
       }
@@ -117,17 +119,17 @@ export default function ProductsPage() {
     }
   }, [activeProduct, isScrolling])
 
-  // Handle keyboard navigation
+  // Handle keyboard navigation - now left/right
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (isScrolling) return
 
-      if (e.key === "ArrowDown" && activeProduct < products.length - 1) {
+      if (e.key === "ArrowRight" && activeProduct < products.length - 1) {
         setDirection(1)
         setActiveProduct((prev) => prev + 1)
         setIsScrolling(true)
         setTimeout(() => setIsScrolling(false), 1000)
-      } else if (e.key === "ArrowUp" && activeProduct > 0) {
+      } else if (e.key === "ArrowLeft" && activeProduct > 0) {
         setDirection(-1)
         setActiveProduct((prev) => prev - 1)
         setIsScrolling(true)
@@ -144,12 +146,22 @@ export default function ProductsPage() {
     setActiveProduct(index)
   }
 
+  const handleAddToCart = () => {
+    setShowToast(true)
+    setTimeout(() => setShowToast(false), 3000)
+  }
+
+  const handleCartClick = () => {
+    setShowCartToast(true)
+    setTimeout(() => setShowCartToast(false), 3000)
+  }
+
   const product = products[activeProduct]
 
   return (
     <div ref={containerRef} className="min-h-screen pt-16 overflow-hidden">
-      {/* Navigation dots */}
-      <div className="fixed right-8 top-1/2 transform -translate-y-1/2 z-50 flex flex-col space-y-4">
+      {/* Navigation dots - now horizontal at bottom */}
+      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex space-x-4">
         {products.map((p, index) => (
           <motion.button
             key={p.id}
@@ -164,8 +176,8 @@ export default function ProductsPage() {
         ))}
       </div>
 
-      {/* Navigation arrows */}
-      <div className="fixed left-1/2 transform -translate-x-1/2 z-50 flex flex-col items-center">
+      {/* Navigation arrows - now left/right */}
+      <div className="fixed top-1/2 transform -translate-y-1/2 z-50 flex justify-between w-full px-4">
         <motion.button
           onClick={() => {
             if (activeProduct > 0) {
@@ -173,13 +185,13 @@ export default function ProductsPage() {
               setActiveProduct((prev) => prev - 1)
             }
           }}
-          className={`absolute top-24 p-2 rounded-full ${
+          className={`p-2 rounded-full ${
             activeProduct > 0 ? "bg-white/80 hover:bg-white shadow-md" : "opacity-0 cursor-default"
           } transition-all duration-300`}
-          whileHover={{ y: -5 }}
+          whileHover={{ x: -5 }}
           animate={{ opacity: activeProduct > 0 ? 1 : 0 }}
         >
-          <ChevronUp className="h-6 w-6 text-gray-700" />
+          <ChevronLeft className="h-6 w-6 text-gray-700" />
         </motion.button>
 
         <motion.button
@@ -189,21 +201,75 @@ export default function ProductsPage() {
               setActiveProduct((prev) => prev + 1)
             }
           }}
-          className={`fixed bottom-8 p-2 rounded-full ${
+          className={`p-2 rounded-full ${
             activeProduct < products.length - 1 ? "bg-white/80 hover:bg-white shadow-md" : "opacity-0 cursor-default"
           } transition-all duration-300`}
-          whileHover={{ y: 5 }}
+          whileHover={{ x: 5 }}
           animate={{
             opacity: activeProduct < products.length - 1 ? 1 : 0,
-            y: [0, 5, 0],
+            x: [0, 5, 0],
           }}
           transition={{
-            y: { repeat: Number.POSITIVE_INFINITY, duration: 1.5 },
+            x: { repeat: Number.POSITIVE_INFINITY, duration: 1.5 },
           }}
         >
-          <ChevronDown className="h-6 w-6 text-gray-700" />
+          <ChevronRight className="h-6 w-6 text-gray-700" />
         </motion.button>
       </div>
+
+      {/* Cart Button */}
+      <motion.div className="fixed top-24 right-8 z-50" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+        <button
+          onClick={handleCartClick}
+          className="bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+        >
+          <ShoppingCart className="h-6 w-6 text-green-600" />
+        </button>
+      </motion.div>
+
+      {/* Cart Toast Message */}
+      <AnimatePresence>
+        {showCartToast && (
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            className="fixed top-36 right-8 z-50 bg-white p-4 rounded-lg shadow-lg max-w-xs"
+          >
+            <div className="flex items-start">
+              <div className="flex-1">
+                <h3 className="font-bold text-green-600 mb-1">Coming Soon!</h3>
+                <p className="text-gray-600 text-sm">Our shopping cart is under development. Check back soon!</p>
+              </div>
+              <button onClick={() => setShowCartToast(false)} className="text-gray-400 hover:text-gray-600">
+                <X size={18} />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Add to Cart Toast Message */}
+      <AnimatePresence>
+        {showToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            className="fixed bottom-20 left-1/2 transform -translate-x-1/2 z-50 bg-white p-4 rounded-lg shadow-lg"
+          >
+            <div className="flex items-center gap-3">
+              <div className={`${product.accentColor} p-2 rounded-full`}>
+                <ShoppingBag className="h-5 w-5 text-white" />
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-800">Coming Soon!</h3>
+                <p className="text-gray-600">Our shop is under development. Check back soon!</p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Product display */}
       <AnimatePresence mode="wait" initial={false}>
@@ -211,15 +277,15 @@ export default function ProductsPage() {
           key={product.id}
           initial={{
             opacity: 0,
-            y: direction > 0 ? 100 : -100,
+            x: direction > 0 ? 100 : -100,
           }}
           animate={{
             opacity: 1,
-            y: 0,
+            x: 0,
           }}
           exit={{
             opacity: 0,
-            y: direction > 0 ? -100 : 100,
+            x: direction > 0 ? -100 : 100,
           }}
           transition={{
             type: "spring",
@@ -321,6 +387,7 @@ export default function ProductsPage() {
 
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="mt-auto">
                 <button
+                  onClick={handleAddToCart}
                   className={`${product.accentColor} text-white flex items-center justify-center gap-2 py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300`}
                 >
                   <ShoppingBag size={18} />
